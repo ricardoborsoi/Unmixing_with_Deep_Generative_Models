@@ -6,7 +6,7 @@ In order to address endmember variability in spectral unmixing, the endmember sp
 
 
 <img src="manifold_model.png" alt="Generative endmember model"
-	title="Generative endmember model"  width="80%" height="80%" />
+	title="Generative endmember model"  width="100%" height="100%" />
 
 
 The code is implemented in MATLAB and includes:  
