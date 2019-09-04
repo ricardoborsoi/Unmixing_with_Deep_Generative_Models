@@ -1,13 +1,13 @@
 #  Deep Generative Endmember Modeling: An Application to Unsupervised Spectral Unmixing    #
 
+This package contains the authors' implementation of the paper [1].
 
+In order to address endmember variability in spectral unmixing, the endmember spectra are modelled using a deep generative model (a VAE), which is learned from the observed hyperspectral image. This allows us to parametrize the variable endmembers using points in the low-dimensional latent space of the generative models, which can then be simultaneously optimized with the abundances to solve the unmixing problem.
 
-![Generative endmember model](manifold_model.png)
 
 <img src="manifold_model.png" alt="Generative endmember model"
-	title="Generative endmember model" width="10"  height="15" />
+	title="Generative endmember model"  width="80%" height="80%" />
 
-This is the authors' implementation of [1].
 
 The code is implemented in MATLAB and includes:  
 -  example1.m                - a demo script comparing the algorithms (DC1)  
@@ -40,17 +40,17 @@ Just start MATLAB and run example1.m or example2.m.
 The variational autoencoders are trained in Python using the Keras package. 
 
 ## NOTES:
-1.  The ELMM algorithm was provided by Lucas Drumetz.
+1.  The ELMM algorithm was provided by Lucas Drumetz.  
     Drumetz, L., Veganzones, M.-A., Henrot, S., Phlypo, R., Chanussot, J., & Jutten, C.
     Blind hyperspectral unmixing using an extended linearmixing model to address spectral variability.
     IEEE Transactions on Image Processing, 2016.
 
-2.  The GLMM algorithm was provided by Tales Imbiriba at https://github.com/talesimbiriba/GLMM.
+2.  The GLMM algorithm was provided by Tales Imbiriba at https://github.com/talesimbiriba/GLMM.  
     Imbiriba, T., Borsoi, R.A. & Bermudez J.C.M.
     Generalized linear mixing model accounting for endmember variability.
     IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), 2018.
 
-3.  The PLMM algorithm was provided by Pierre-Antoine Thouvenin.
+3.  The PLMM algorithm was provided by Pierre-Antoine Thouvenin.  
     Thouvenin, P.-A., Dobigeon, N., & Tourneret, J.-Y.
     Hyperspectral unmixing with spectral variability using a perturbed linear mixing model.
     IEEE Transactions on Signal Processing, 2016.
