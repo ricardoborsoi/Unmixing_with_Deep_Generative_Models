@@ -2,6 +2,11 @@
 
 
 
+![Generative endmember model](manifold_model.png)
+
+<img src="manifold_model.png" alt="Generative endmember model"
+	title="Generative endmember model" width="10"  height="15" />
+
 This is the authors' implementation of [1].
 
 The code is implemented in MATLAB and includes:  

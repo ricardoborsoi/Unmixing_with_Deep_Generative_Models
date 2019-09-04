@@ -40,7 +40,7 @@ rng(5,'twister')
 
 % -------------------------------------------------------------------------
 % load data
-load('/home/rborsoi/GITHUB/data_ex2.mat')
+load('data/data_ex2.mat')
 
 [P,N]   = size(alphas);
 [m,n,~] = size(alphas_cube);
