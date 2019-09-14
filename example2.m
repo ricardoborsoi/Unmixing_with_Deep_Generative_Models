@@ -1,6 +1,13 @@
 % -------------------------------------------------------------------------
+% This code executes example 2 of the DeepGUn algorithm, referring to 
+% the following publication:
 % 
+%   "Deep Generative Endmember Modeling: An Application to Unsupervised Spectral Unmixing"
+%   Ricardo Augusto Borsoi, Tales Imbiriba, José Carlos Moreira Bermudez
+%   IEEE Transactions on Computational Imaging, 2019
 % 
+% The DeepGUn algorithm performs spectral unmixing with spectral variability
+% modeling the endmembers using deep generative models (variational autoencoders). 
 % -------------------------------------------------------------------------
 
 clear all
@@ -12,7 +19,6 @@ addpath(genpath('utils'))
 addpath(genpath('other_methods'))
 addpath(genpath('DeepGUn'))
 
-% error('aaaaargh')
 
 clus = gcp('nocreate'); % If no pool, do not create new one.
 if isempty(clus)
@@ -246,11 +252,11 @@ fprintf('DeepGen..: %.4f \n', acos_M_DeepGen)
 
 
 
-rmse_r_FCLS    = RMSEAndSTDForMatrix(r(:), R_FCLS(:));
-rmse_r_PLMM    = RMSEAndSTDForMatrix(r(:), R_PLMM(:));
-rmse_r_ELMM    = RMSEAndSTDForMatrix(r(:), R_ELMM(:));
-rmse_r_GELMM   = RMSEAndSTDForMatrix(r(:), R_GELMM(:));
-rmse_r_DeepGen = RMSEAndSTDForMatrix(r(:), R_DeepGen(:));
+rmse_r_FCLS    = sqrt(norm(r(:) - R_FCLS(:))^2/(norm(r(:))^2));
+rmse_r_PLMM    = sqrt(norm(r(:) - R_PLMM(:))^2/(norm(r(:))^2));
+rmse_r_ELMM    = sqrt(norm(r(:) - R_ELMM(:))^2/(norm(r(:))^2));
+rmse_r_GELMM   = sqrt(norm(r(:) - R_GELMM(:))^2/(norm(r(:))^2));
+rmse_r_DeepGen = sqrt(norm(r(:) - R_DeepGen(:))^2/(norm(r(:))^2));
 
 fprintf('\nRMSE for R\n')
 fprintf('FCLS.....: %.4f \n', rmse_r_FCLS)
@@ -283,16 +289,16 @@ for i=1:P
     axes(ha(i+j*P)); j=j+1;
     imagesc(A_FCLSU_im(:,:,i), [0 1]), set(gca,'ytick',[],'xtick',[])%, axis square
     axes(ha(i+j*P)); j=j+1;
-    imagesc(A_PLMM_im(:,:,i), [0 1])%, [min(A_PLMM_im(:)), max(A_PLMM_im(:))])
+    imagesc(A_PLMM_im(:,:,i), [0 1])
     set(gca,'ytick',[],'xtick',[]) %, axis square
     axes(ha(i+j*P)); j=j+1;
-    imagesc(A_ELMM_im(:,:,i), [0 1]); %[min(A_ELMM_im(:)), max(A_ELMM_im(:))])
+    imagesc(A_ELMM_im(:,:,i), [0 1]); 
     set(gca,'ytick',[],'xtick',[]) %, axis square
     axes(ha(i+j*P)); j=j+1;
-    imagesc(A_GELMM_im(:,:,i), [0 1]) %, [min(A_ELMM_sprpx_im(:)), max(A_ELMM_sprpx_im(:))])
+    imagesc(A_GELMM_im(:,:,i), [0 1]) 
     set(gca,'ytick',[],'xtick',[])%, axis square
     axes(ha(i+j*P)); j=j+1;
-    imagesc(A_deepGen_im(:,:,i), [0 1]); %[min(A_deepGen_im(:)), max(A_deepGen_im(:))])
+    imagesc(A_deepGen_im(:,:,i), [0 1]); 
     set(gca,'ytick',[],'xtick',[])%, axis square
 end
 
