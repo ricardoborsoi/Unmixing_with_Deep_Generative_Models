@@ -12,6 +12,11 @@ In order to address endmember variability in spectral unmixing, the endmember sp
 The code is implemented in MATLAB and includes:  
 -  example1.m                - a demo script comparing the algorithms (DC1)  
 -  example2.m                - a demo script comparing the algorithms (DC2)  
+-  example3.m                - a demo script comparing the algorithms (DC3)  
+-  example4.m                - a demo script comparing the algorithms (DC4)  
+-  example_real1.m           - a demo script comparing the algorithms (Houston)  
+-  example_real2.m           - a demo script comparing the algorithms (Samson)  
+-  example_real3.m           - a demo script comparing the algorithms (Jasper Ridge)  
 -  ./DeepGUn/                - contains the MATLAB files associated with the DeepGUn algorithm
 -  ./python/                 - contains the Python files associated with the DeepGUn algorithm
 -  ./other_methods/          - contains the ELMM, GLMM and PLMM methods
@@ -55,6 +60,7 @@ The variational autoencoders are trained in Python using the Keras package.
     Hyperspectral unmixing with spectral variability using a perturbed linear mixing model.
     IEEE Transactions on Signal Processing, 2016.
 
-
+3.  The minFunc optimization toolbox was provided by Mark Schmidt and can be found at  
+    http://www.cs.ubc.ca/~schmidtm/Software/minFunc.html
 
 
