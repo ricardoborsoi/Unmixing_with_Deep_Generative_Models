@@ -23,7 +23,7 @@ addpath(genpath('DeepGUn'))
 clus = gcp('nocreate'); % If no pool, do not create new one.
 if isempty(clus)
     c = parcluster('local');
-    c.NumWorkers = 5; 8; 7;
+    c.NumWorkers = 1; 5; 8; 7;
     parpool(c, c.NumWorkers);
 end
 

@@ -1,7 +1,7 @@
 function [A,psi_maps,M,optim_struct] = GLMM_fixedEMs(data, A_init, EMs_tensor,lambda_a,varargin)
 % Unmix hyperspectral data using a fixed endmember tensor "EMs_tensor"
 %
-%   The GLMM implementation was constructed based on the ELMM code supplied 
+%   This code was constructed based on the ELMM code supplied 
 %   by Lucas Drumetz. 
 %
 %
@@ -303,7 +303,6 @@ end
 S_old = M;
 maxiter_anls = 1;
 
-% later try to use as M0 if it doesnt works
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -318,22 +317,8 @@ for i = 1:maxiter_anls
     psi_maps_old = psi_maps;
     A_old_anls = A;
     
-    %% S_update
+
     
-%     if verbose
-%         fprintf('updating M...\n')
-%     end
-% 
-%         parfor k =1:N
-%            M(:,:,k) = (data_r(:,k)*A(:,k)' + lambda_m*M0.*psi_maps(:,:,k)) ...   %
-%                 /(A(:,k)*A(:,k)' + lambda_m*eye(R));
-%             M(:,:,k) = max(1e-6,M(:,:,k));
-%         end
-% 
-%         
-%     if verbose
-%         fprintf('Done!\n')
-%     end
     
     %% A_update
     

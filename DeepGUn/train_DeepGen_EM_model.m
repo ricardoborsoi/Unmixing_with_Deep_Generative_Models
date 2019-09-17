@@ -72,19 +72,13 @@ if strcmp(AECtype,'deterministic')
 elseif strcmp(AECtype,'VAE')
     % train a VAE in keras (python)
     P = length(pure_pxs);
-    % EMscalingFactors = zeros(1,P);
     
     for em_idx=1:P
         trainingData = pure_pxs{em_idx}';
-        
-        % scale the endmembers to compensate for low albedo
-%         EMscalingFactors(em_idx) = 1/max(trainingData(:));
-%         trainingData = EMscalingFactors(em_idx)*trainingData;
-
         latent_dim = dimAut;
         % batchSize = 20; % batch size for network training
         batchSize = ceil(size(trainingData,1)/3) + 2;
-        beta_loss = 1; 10; % scale the KL divergence term in the AEC cost function
+        beta_loss = 1; % scale the KL divergence term in the AEC cost function
         m_idx = M0(:,em_idx);
         save('python/training_EM_data.mat','trainingData','em_idx','latent_dim','batchSize','beta_loss','actFunStr','m_idx')
 
@@ -92,8 +86,7 @@ elseif strcmp(AECtype,'VAE')
         system('python python/vae_keras_ems_train.py')
     end
     
-    % TODO: get mapped training data, and synth
-    % signatures
+    % TODO: get mapped training data, and synth signatures
     mapped_dataAEC = [];
     mappingAEC = loadNetworks('vae_EM_idx',P);
     synthSignaturesMan = [];

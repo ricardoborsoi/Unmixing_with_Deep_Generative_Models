@@ -51,7 +51,7 @@ end
 data_r = reshape(data,nr*nc,L)';
 
 
-% denoise first?
+% compute the distances from each pixel to M0
 cosdists = 1 - M0' * data_r ./ sqrt(repmat(sum(data_r.^2,1),[P,1]) .* repmat(sum(M0.^2,1)',[1,N]));
 % eucdists = sqrt(permute(sum(abs(repmat(data_r,[1 1 P]) - permute(repmat(M0,[1 1 N]),[1 3 2])).^2, 1), [3 2 1])/L);
 eucdists = (permute(sum(abs(repmat(data_r,[1 1 P]) - permute(repmat(M0,[1 1 N]),[1 3 2])).^2, 1), [3 2 1])/L);
@@ -60,10 +60,10 @@ eucdists = (permute(sum(abs(repmat(data_r,[1 1 P]) - permute(repmat(M0,[1 1 N]),
 % weight both distances
 cosdists = cosdists + weightEuc * eucdists;
 
-% Get indices of pixels similar to pure pixels (do this per EM?)
+% Get indices of pixels similar to pure pixels (do this per EM)
 p_pixels = zeros(size(cosdists));
 
-% Extract pure pixels
+% Extract pure pixels (detect which pixels are pure)
 if flag_Npx == false
     % extract pure pixels by threshold
     for i=1:P

@@ -97,7 +97,7 @@ for i=1:P
 end
 
 
-% Recompute abundances --------------------------------------
+% Recompute abundances one final time with more iterations ----------------
 epsilon_admm_abs = 1e-4;
 epsilon_admm_rel = 1e-4;
 A = GLMM_fixedEMs(data, A, EMs_tensor,lambda_a,nnorm,verbose,maxiter_anls_glmm,maxiter_admm,epsilon_s,epsilon_a,epsilon_psi,epsilon_admm_abs,epsilon_admm_rel,flag_useparfor);            
