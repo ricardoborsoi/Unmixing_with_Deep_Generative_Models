@@ -37,7 +37,7 @@ publication:
 
 
 ## INSTALLING & RUNNING:
-Just start MATLAB and run example1.m or example2.m.
+Just start MATLAB and run one of the demo scripts (e.g. example1.m, example2.m, etc).
 
 
 
